@@ -1,0 +1,75 @@
+// ── Variables ─────────────────────────────────────────────────────────────
+$cream:         #FAF8F4;
+$cream-dark:    #F2EDE4;
+$cream-border:  #E8E0D3;
+$brown-light:   #C4A882;
+$brown:         #8B6F47;
+$brown-dark:    #5C4428;
+$ink:           #2D2318;
+$ink-soft:      #5A4A38;
+$ink-muted:     #9A8878;
+$green:         #4A7C59;
+$green-light:   #EBF4EE;
+$red:           #C0392B;
+$red-light:     #FDECEA;
+$amber:         #D4880A;
+$amber-light:   #FEF6E4;
+$blue:          #3A7BD5;
+$blue-light:    #EBF2FF;
+
+$font-serif:    'Lora', Georgia, serif;
+$font-sans:     'DM Sans', system-ui, sans-serif;
+$font-mono:     'JetBrains Mono', monospace;
+
+$radius-sm:   6px;
+$radius-md:   12px;
+$radius-lg:   18px;
+$radius-xl:   24px;
+
+$shadow-sm:   0 1px 3px rgba(45,35,24,.08), 0 1px 2px rgba(45,35,24,.04);
+$shadow-md:   0 4px 12px rgba(45,35,24,.10), 0 2px 4px rgba(45,35,24,.06);
+$shadow-lg:   0 8px 32px rgba(45,35,24,.12), 0 4px 8px rgba(45,35,24,.06);
+
+$sidebar-w:   240px;
+$header-h:    60px;
+
+// ── Reset & Base ──────────────────────────────────────────────────────────
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 15px; scroll-behavior: smooth; }
+
+body {
+  font-family: $font-sans;
+  background: $cream;
+  color: $ink;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+button { cursor: pointer; font-family: inherit; }
+
+input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+h1, h2, h3, h4 {
+  font-family: $font-serif;
+  line-height: 1.25;
+  color: $ink;
+}
+
+// ── Scrollbar ─────────────────────────────────────────────────────────────
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: $cream-dark; }
+::-webkit-scrollbar-thumb { background: $brown-light; border-radius: 3px; }
+
+// ── Utility ───────────────────────────────────────────────────────────────
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+}

@@ -1,0 +1,128 @@
+@use '../../styles/variables' as *;
+
+.sidebar {
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  width: $sidebar-w;
+  background: #fff;
+  border-right: 1px solid $cream-border;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  box-shadow: 2px 0 12px rgba($ink, .04);
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 22px 20px 18px;
+    border-bottom: 1px solid $cream-border;
+    cursor: pointer;
+    transition: background .15s;
+    &:hover { background: $cream; }
+  }
+
+  &__brand-icon { font-size: 1.6rem; }
+
+  &__brand-name {
+    font-family: $font-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: $ink;
+    line-height: 1.2;
+  }
+
+  &__brand-sub {
+    font-size: .75rem;
+    color: $ink-muted;
+    letter-spacing: .05em;
+  }
+
+  &__nav {
+    flex: 1;
+    padding: 16px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    overflow-y: auto;
+  }
+
+  &__section-label {
+    font-size: .7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: $ink-muted;
+    padding: 4px 10px 8px;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 12px;
+    border-radius: $radius-md;
+    font-size: .9rem;
+    font-weight: 400;
+    color: $ink-soft;
+    transition: all .15s;
+
+    &:hover {
+      background: $cream;
+      color: $ink;
+    }
+
+    &--active {
+      background: rgba($brown-light, .15);
+      color: $brown-dark;
+      font-weight: 500;
+    }
+  }
+
+  &__link-icon { font-size: 1rem; width: 20px; text-align: center; }
+
+  &__divider {
+    height: 1px;
+    background: $cream-border;
+    margin: 8px 0;
+  }
+
+  &__footer {
+    padding: 12px 16px 20px;
+    border-top: 1px solid $cream-border;
+  }
+
+  &__logout, &__login-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 9px 14px;
+    border-radius: $radius-md;
+    font-size: .875rem;
+    font-weight: 500;
+    background: none;
+    border: 1.5px solid $cream-border;
+    color: $ink-soft;
+    transition: all .15s;
+    cursor: pointer;
+    justify-content: center;
+
+    &:hover {
+      background: $cream-dark;
+      color: $ink;
+      border-color: $brown-light;
+    }
+  }
+
+  &__login-btn {
+    background: rgba($brown,.07);
+    border-color: rgba($brown,.2);
+    color: $brown-dark;
+    &:hover {
+      background: $brown;
+      color: #fff;
+      border-color: $brown;
+    }
+  }
+}

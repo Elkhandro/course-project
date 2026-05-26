@@ -1,0 +1,447 @@
+@use 'variables' as *;
+
+// Import Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+// ── Layout ────────────────────────────────────────────────────────────────
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.app-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: $sidebar-w;
+  min-height: 100vh;
+  transition: margin-left .25s ease;
+}
+
+.page-content {
+  flex: 1;
+  padding: 32px 40px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+// ── Page Header ───────────────────────────────────────────────────────────
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  gap: 16px;
+  flex-wrap: wrap;
+
+  &__title {
+    font-family: $font-serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: $ink;
+  }
+
+  &__subtitle {
+    font-size: .875rem;
+    color: $ink-muted;
+    margin-top: 2px;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+}
+
+// ── Card ──────────────────────────────────────────────────────────────────
+.card {
+  background: #fff;
+  border: 1px solid $cream-border;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-sm;
+  overflow: hidden;
+
+  &--hover {
+    transition: box-shadow .2s ease, transform .2s ease;
+    &:hover {
+      box-shadow: $shadow-md;
+      transform: translateY(-2px);
+    }
+  }
+
+  &__body { padding: 24px; }
+  &__footer {
+    padding: 16px 24px;
+    border-top: 1px solid $cream-border;
+    background: $cream;
+  }
+}
+
+// ── Button ────────────────────────────────────────────────────────────────
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 18px;
+  border-radius: $radius-md;
+  font-size: .875rem;
+  font-weight: 500;
+  border: none;
+  transition: all .18s ease;
+  white-space: nowrap;
+
+  &--primary {
+    background: $brown;
+    color: #fff;
+    &:hover { background: $brown-dark; box-shadow: $shadow-sm; }
+    &:active { transform: scale(.98); }
+  }
+
+  &--secondary {
+    background: $cream-dark;
+    color: $ink;
+    border: 1px solid $cream-border;
+    &:hover { background: $cream-border; }
+  }
+
+  &--ghost {
+    background: transparent;
+    color: $ink-soft;
+    &:hover { background: $cream-dark; }
+  }
+
+  &--danger {
+    background: $red-light;
+    color: $red;
+    &:hover { background: $red; color: #fff; }
+  }
+
+  &--success {
+    background: $green-light;
+    color: $green;
+    &:hover { background: $green; color: #fff; }
+  }
+
+  &--sm {
+    padding: 6px 12px;
+    font-size: .8125rem;
+    border-radius: $radius-sm;
+  }
+
+  &--icon {
+    padding: 8px;
+    border-radius: $radius-sm;
+    background: transparent;
+    color: $ink-muted;
+    &:hover { background: $cream-dark; color: $ink; }
+  }
+
+  &:disabled {
+    opacity: .45;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+// ── Form ──────────────────────────────────────────────────────────────────
+.form-group {
+  margin-bottom: 18px;
+
+  label {
+    display: block;
+    font-size: .8125rem;
+    font-weight: 500;
+    color: $ink-soft;
+    margin-bottom: 6px;
+    letter-spacing: .02em;
+    text-transform: uppercase;
+  }
+}
+
+.input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid $cream-border;
+  border-radius: $radius-md;
+  background: $cream;
+  color: $ink;
+  font-size: .9375rem;
+  transition: border-color .18s, box-shadow .18s;
+
+  &:focus {
+    outline: none;
+    border-color: $brown-light;
+    box-shadow: 0 0 0 3px rgba($brown-light, .18);
+    background: #fff;
+  }
+
+  &::placeholder { color: $ink-muted; }
+
+  &--error { border-color: $red; }
+}
+
+.select {
+  @extend .input;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239A8878' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+}
+
+// ── Badge ─────────────────────────────────────────────────────────────────
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  border-radius: 20px;
+  font-size: .75rem;
+  font-weight: 500;
+  letter-spacing: .02em;
+
+  &--green  { background: $green-light; color: $green; }
+  &--red    { background: $red-light; color: $red; }
+  &--amber  { background: $amber-light; color: $amber; }
+  &--blue   { background: $blue-light; color: $blue; }
+  &--gray   { background: $cream-dark; color: $ink-muted; }
+  &--brown  { background: rgba($brown-light,.2); color: $brown-dark; }
+}
+
+// ── Table ─────────────────────────────────────────────────────────────────
+.table-wrap {
+  border: 1px solid $cream-border;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: $shadow-sm;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+
+  thead {
+    background: $cream;
+    tr { border-bottom: 1.5px solid $cream-border; }
+    th {
+      padding: 11px 16px;
+      text-align: left;
+      font-size: .75rem;
+      font-weight: 600;
+      color: $ink-muted;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      white-space: nowrap;
+    }
+  }
+
+  tbody tr {
+    border-bottom: 1px solid $cream-border;
+    transition: background .14s;
+    &:last-child { border-bottom: none; }
+    &:hover { background: $cream; }
+    td {
+      padding: 12px 16px;
+      font-size: .9rem;
+      color: $ink;
+      vertical-align: middle;
+    }
+  }
+}
+
+// ── Empty / Loading ───────────────────────────────────────────────────────
+.empty-state {
+  text-align: center;
+  padding: 64px 24px;
+  color: $ink-muted;
+
+  &__icon { font-size: 3rem; margin-bottom: 12px; opacity: .45; }
+  &__title { font-family: $font-serif; font-size: 1.15rem; color: $ink-soft; margin-bottom: 6px; }
+  &__text { font-size: .875rem; }
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  gap: 8px;
+  color: $ink-muted;
+  font-size: .9rem;
+
+  &__dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: $brown-light;
+    animation: bounce .8s ease infinite;
+    &:nth-child(2) { animation-delay: .15s; }
+    &:nth-child(3) { animation-delay: .3s; }
+  }
+}
+
+@keyframes bounce {
+  0%, 80%, 100% { transform: scale(.8); opacity: .5; }
+  40% { transform: scale(1.2); opacity: 1; }
+}
+
+// ── Toast / Alert ─────────────────────────────────────────────────────────
+.alert {
+  padding: 12px 16px;
+  border-radius: $radius-md;
+  font-size: .875rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+
+  &--error   { background: $red-light; color: $red; border: 1px solid rgba($red,.2); }
+  &--success { background: $green-light; color: $green; border: 1px solid rgba($green,.2); }
+  &--info    { background: $blue-light; color: $blue; border: 1px solid rgba($blue,.2); }
+  &--warning { background: $amber-light; color: $amber; border: 1px solid rgba($amber,.2); }
+}
+
+// ── Stat Card ─────────────────────────────────────────────────────────────
+.stat-card {
+  background: #fff;
+  border: 1px solid $cream-border;
+  border-radius: $radius-lg;
+  padding: 24px;
+  box-shadow: $shadow-sm;
+
+  &__label {
+    font-size: .8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    color: $ink-muted;
+    margin-bottom: 8px;
+  }
+
+  &__value {
+    font-family: $font-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: $ink;
+    line-height: 1;
+  }
+
+  &__sub {
+    margin-top: 6px;
+    font-size: .8125rem;
+    color: $ink-muted;
+  }
+
+  &__icon {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+  }
+}
+
+// ── Modal ─────────────────────────────────────────────────────────────────
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba($ink, .45);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn .18s ease;
+}
+
+.modal {
+  background: #fff;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-lg;
+  width: 100%;
+  max-width: 560px;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: slideUp .2s ease;
+
+  &__header {
+    padding: 24px 28px 20px;
+    border-bottom: 1px solid $cream-border;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-family: $font-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  &__body { padding: 24px 28px; }
+
+  &__footer {
+    padding: 16px 28px 24px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { transform: translateY(16px); opacity: 0; } to { transform: none; opacity: 1; } }
+
+// ── Filter Bar ────────────────────────────────────────────────────────────
+.filter-bar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+  padding: 16px 20px;
+  background: #fff;
+  border: 1px solid $cream-border;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-sm;
+
+  &__label {
+    font-size: .8rem;
+    font-weight: 600;
+    color: $ink-muted;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    white-space: nowrap;
+  }
+
+  select, input[type="text"], input[type="search"] {
+    padding: 8px 12px;
+    border: 1.5px solid $cream-border;
+    border-radius: $radius-md;
+    background: $cream;
+    color: $ink;
+    font-size: .875rem;
+    font-family: $font-sans;
+    transition: border-color .18s;
+    &:focus { outline: none; border-color: $brown-light; }
+  }
+}
+
+// ── Tag ───────────────────────────────────────────────────────────────────
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: .75rem;
+  font-weight: 500;
+  background: rgba($brown-light,.18);
+  color: $brown-dark;
+}
+
+// ── Media type ────────────────────────────────────────────────────────────
+.media-icon {
+  font-size: 1.1rem;
+  &--paperback::before { content: '📕'; }
+  &--hardcover::before { content: '📗'; }
+  &--ebook::before     { content: '💻'; }
+  &--audio::before     { content: '🎧'; }
+}

@@ -1,0 +1,64 @@
+@use '../styles/variables' as *;
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $cream;
+  padding: 20px;
+
+  // Subtle pattern
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba($brown-light, .12) 0, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba($brown, .07) 0, transparent 40%);
+}
+
+.login-card {
+  background: #fff;
+  border: 1px solid $cream-border;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-lg;
+  padding: 40px;
+  width: 100%;
+  max-width: 420px;
+
+  &__header { text-align: center; margin-bottom: 28px; }
+
+  &__icon {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  &__title {
+    font-family: $font-serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: $ink;
+    margin-bottom: 6px;
+  }
+
+  &__sub { color: $ink-muted; font-size: .875rem; }
+
+  &__submit {
+    width: 100%;
+    justify-content: center;
+    padding: 12px;
+    font-size: 1rem;
+    margin-top: 8px;
+    border-radius: $radius-md;
+  }
+
+  &__footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: .875rem;
+    color: $ink-muted;
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+
+    a { color: $brown; font-weight: 500; &:hover { text-decoration: underline; } }
+  }
+}

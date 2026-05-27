@@ -1,15 +1,21 @@
-@use '../styles/variables' as *;
+@use "../styles/variables" as *;
 
 .home-page {
   padding: 48px 40px;
   max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .home-hero {
   text-align: center;
   padding: 60px 0 56px;
 
-  &__icon { font-size: 4rem; margin-bottom: 16px; display: block; }
+  &__icon {
+    font-size: 4rem;
+    margin-bottom: 16px;
+    display: block;
+  }
 
   &__title {
     font-family: $font-serif;
@@ -52,7 +58,19 @@
   padding: 24px;
   text-align: center;
 
-  &__icon { font-size: 2rem; margin-bottom: 10px; }
-  &__title { font-family: $font-serif; font-size: 1.05rem; font-weight: 600; margin-bottom: 6px; }
-  &__text { font-size: .85rem; color: $ink-muted; line-height: 1.5; }
+  &__icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  &__title {
+    font-family: $font-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  &__text {
+    font-size: 0.85rem;
+    color: $ink-muted;
+    line-height: 1.5;
+  }
 }

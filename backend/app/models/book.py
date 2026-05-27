@@ -48,6 +48,7 @@ class Book(Base):
 
     # Остаток на складе
     stock: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
+    cover_image: Mapped[str | None] = mapped_column(String(500), nullable=True)
 
     # Внешние ключи
     author_id: Mapped[int] = mapped_column(ForeignKey("authors.id"), nullable=False)

@@ -1,4 +1,4 @@
-@use '../../styles/variables' as *;
+@use "../../styles/variables" as *;
 
 .catalog-page {
   padding: 32px 40px;
@@ -8,14 +8,15 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    font-size: .875rem;
+    font-size: 0.875rem;
     color: $ink-soft;
     cursor: pointer;
     white-space: nowrap;
 
     input[type="checkbox"] {
       accent-color: $brown;
-      width: 15px; height: 15px;
+      width: 15px;
+      height: 15px;
     }
   }
 }
@@ -32,26 +33,53 @@
   flex-direction: column;
 
   &__cover {
-    height: 160px;
-    background: linear-gradient(135deg, $cream-dark 0%, rgba($brown-light,.3) 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 200px;
     position: relative;
     overflow: hidden;
+    background: linear-gradient(
+      135deg,
+      $cream-dark 0%,
+      rgba($brown-light, 0.3) 100%
+    );
 
-    // Subtle spine effect
+    // Книжный корешок
     &::before {
-      content: '';
+      content: "";
       position: absolute;
-      left: 0; top: 0; bottom: 0;
+      left: 0;
+      top: 0;
+      bottom: 0;
       width: 14px;
-      background: rgba($brown-light,.4);
-      border-right: 1px solid rgba($brown,.15);
+      background: rgba($brown-light, 0.4);
+      border-right: 1px solid rgba($brown, 0.15);
+      z-index: 1;
     }
   }
 
-  &__cover-icon { font-size: 2.5rem; opacity: .6; }
+  &__cover-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover &__cover-img {
+    transform: scale(1.04);
+  }
+
+  &__cover-fallback {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__cover-icon {
+    font-size: 2.5rem;
+    opacity: 0.5;
+  }
 
   &__body {
     padding: 16px;
@@ -61,17 +89,17 @@
   }
 
   &__genre {
-    font-size: .7rem;
+    font-size: 0.7rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: .07em;
+    letter-spacing: 0.07em;
     color: $brown;
     margin-bottom: 4px;
   }
 
   &__title {
     font-family: $font-serif;
-    font-size: .95rem;
+    font-size: 0.95rem;
     font-weight: 600;
     color: $ink;
     line-height: 1.3;
@@ -83,7 +111,7 @@
   }
 
   &__author {
-    font-size: .8rem;
+    font-size: 0.8rem;
     color: $ink-muted;
     margin-bottom: 12px;
     flex: 1;

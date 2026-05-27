@@ -37,6 +37,7 @@ class BookUpdate(BaseModel):
     stock: int | None = Field(None, ge=0)
     author_id: int | None = None
     genre_id: int | None = None
+    cover_image: str | None = None
 
 
 # Краткое представление — для списков
@@ -50,6 +51,7 @@ class BookListRead(BaseModel):
     author: AuthorRead
     genre: GenreRead
     is_in_stock: bool
+    cover_image: str | None = None
 
     model_config = {"from_attributes": True}
 
@@ -59,5 +61,6 @@ class BookRead(BookListRead):
     pages: int
     wholesale_price: Decimal
     price_diff: Decimal
+    cover_image: str | None = None
 
     model_config = {"from_attributes": True}

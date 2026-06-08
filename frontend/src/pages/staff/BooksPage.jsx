@@ -125,7 +125,7 @@ export default function StaffBooksPage() {
         <span className="filter-bar__label">Фильтры</span>
         <input
           type="search"
-          placeholder="🔍 Название / автор..."
+          placeholder="Название / автор..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           style={{ minWidth: 220 }}
@@ -189,7 +189,7 @@ export default function StaffBooksPage() {
         <Loading />
       ) : filtered.length === 0 ? (
         <EmptyState
-          icon="📚"
+          icon=""
           title="Книги не найдены"
           text="Добавьте первую книгу или измените фильтры"
         />
@@ -269,7 +269,7 @@ export default function StaffBooksPage() {
                           setError("");
                         }}
                       >
-                        ✏️
+                        Редактировать
                       </button>
                       <button
                         className="btn btn--icon"
@@ -279,7 +279,7 @@ export default function StaffBooksPage() {
                           setError("");
                         }}
                       >
-                        🗑️
+                        Удалить
                       </button>
                     </div>
                   </td>

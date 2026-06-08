@@ -70,7 +70,7 @@ export default function CatalogPage() {
         <span className="filter-bar__label">Фильтры</span>
         <input
           type="search"
-          placeholder="🔍 Поиск по названию или автору..."
+          placeholder="Поиск по названию или автору..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           style={{ minWidth: 240 }}
@@ -124,7 +124,7 @@ export default function CatalogPage() {
         <Loading />
       ) : filtered.length === 0 ? (
         <EmptyState
-          icon="📭"
+          icon=""
           title="Ничего не найдено"
           text="Попробуйте изменить фильтры"
         />
@@ -155,10 +155,10 @@ export default function CatalogPage() {
                 >
                   <span className="book-card__cover-icon">
                     {book.media_type === "audio"
-                      ? "🎧"
+                      ? ""
                       : book.media_type === "ebook"
-                        ? "💻"
-                        : "📖"}
+                        ? ""
+                        : ""}
                   </span>
                 </div>
               </div>

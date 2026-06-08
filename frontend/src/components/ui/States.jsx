@@ -1,4 +1,4 @@
-export function Loading({ text = 'Загрузка...' }) {
+export function Loading({ text = "Загрузка..." }) {
   return (
     <div className="loading">
       <div className="loading__dot" />
@@ -9,7 +9,7 @@ export function Loading({ text = 'Загрузка...' }) {
   );
 }
 
-export function EmptyState({ icon = '📭', title, text }) {
+export function EmptyState({ icon = "", title, text }) {
   return (
     <div className="empty-state">
       <div className="empty-state__icon">{icon}</div>

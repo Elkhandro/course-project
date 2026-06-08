@@ -1,26 +1,26 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { login } from '../api/services';
-import { useAuth } from '../context/AuthContext';
-import './LoginPage.scss';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { login } from "../api/services";
+import { useAuth } from "../context/AuthContext";
+import "./LoginPage.scss";
 
 export default function LoginPage() {
   const { setToken } = useAuth();
   const navigate = useNavigate();
-  const [form, setForm] = useState({ username: '', password: '' });
-  const [error, setError] = useState('');
+  const [form, setForm] = useState({ username: "", password: "" });
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
+    setError("");
     setLoading(true);
     try {
       const res = await login(form.username, form.password);
       setToken(res.data.access_token);
-      navigate('/staff/books');
+      navigate("/staff/books");
     } catch (err) {
-      setError(err.response?.data?.detail || 'Неверный логин или пароль');
+      setError(err.response?.data?.detail || "Неверный логин или пароль");
     } finally {
       setLoading(false);
     }
@@ -30,7 +30,7 @@ export default function LoginPage() {
     <div className="login-page">
       <div className="login-card">
         <div className="login-card__header">
-          <div className="login-card__icon">📚</div>
+          <div className="login-card__icon"></div>
           <h1 className="login-card__title">Вход в систему</h1>
           <p className="login-card__sub">Панель сотрудника книжного магазина</p>
         </div>
@@ -62,8 +62,12 @@ export default function LoginPage() {
             />
           </div>
 
-          <button className="btn btn--primary login-card__submit" type="submit" disabled={loading}>
-            {loading ? 'Входим...' : 'Войти'}
+          <button
+            className="btn btn--primary login-card__submit"
+            type="submit"
+            disabled={loading}
+          >
+            {loading ? "Входим..." : "Войти"}
           </button>
         </form>
 

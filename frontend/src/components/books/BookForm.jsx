@@ -2,10 +2,10 @@ import { useState } from "react";
 import "./BookForm.scss";
 
 const MEDIA_TYPES = [
-  { value: "paperback", label: "📕 Мягкая обложка" },
-  { value: "hardcover", label: "📗 Твёрдая обложка" },
-  { value: "ebook", label: "💻 Электронная" },
-  { value: "audio", label: "🎧 Аудиокнига" },
+  { value: "paperback", label: "Мягкая обложка" },
+  { value: "hardcover", label: "Твёрдая обложка" },
+  { value: "ebook", label: "Электронная" },
+  { value: "audio", label: "Аудиокнига" },
 ];
 
 const empty = {
@@ -114,7 +114,7 @@ export default function BookForm({
                 onChange={handleCoverChange}
                 style={{ display: "none" }}
               />
-              <span className="cover-upload__icon">🖼️</span>
+              <span className="cover-upload__icon"></span>
               <span className="cover-upload__hint">Нажмите для выбора</span>
               <span className="cover-upload__formats">JPG, PNG, WEBP</span>
             </label>

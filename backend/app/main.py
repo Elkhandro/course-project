@@ -1,13 +1,13 @@
 import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles       # ← новое
+from fastapi.staticfiles import StaticFiles      
 
 from app.core.config import settings
 from app.api.v1.router import api_router
 
 # Создаём папку для обложек при старте
-os.makedirs("uploads/covers", exist_ok=True)     # ← новое
+os.makedirs("uploads/covers", exist_ok=True)     
 
 app = FastAPI(
     title=settings.APP_TITLE,
@@ -24,7 +24,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Раздаём загруженные файлы как статику        # ← новое
+# Раздаём загруженные файлы как статику   
 app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
 
 app.include_router(api_router, prefix="/api/v1")
